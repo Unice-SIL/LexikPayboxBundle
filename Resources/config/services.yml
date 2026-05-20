@@ -9,12 +9,12 @@ services:
         autowire: true
         autoconfigure: true
 
-        Lexik\Bundle\PayboxBundle\Controller\:
-            resource: '../../Controller'
-            calls:
-                - setContainer: [ '@service_container' ]
+        Lexik\Bundle\PayboxBundle\Controller\DefaultController:
+            public: true
+            autowire: true
+            autoconfigure: true
             tags: [ 'controller.service_arguments' ]
-            
+
     lexik_paybox.request_handler:
         class:     '%lexik_paybox.request_handler.class%'
         public:    true
